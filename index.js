@@ -1,19 +1,19 @@
 var array = require('to-array');
-var attributes = require('attributes');
 var tick = require('next-tick');
 
 function walk(el, fn, done) {
-  var nodes = array(el.children);
+  var nodes;
 
   // Only use the root element at the top level
   // This prevents recursion and allows `fn` to be
   // called on `el` as well.
   if(fn.depth == null) {
     fn.depth = 0;
-    nodes.unshift(el);
+    nodes = [el];
   }
   else {
     fn.depth += 1;
+    nodes = array(el.childNodes);
   }
 
   function next(stop){
@@ -29,11 +29,11 @@ function walk(el, fn, done) {
 
     // If there are child nodes, we should work
     // inside the element
-    if(child.children.length) {
+    if(child.childNodes.length) {
       walk(child, fn, next);
     }
     else {
-      fn(child, attributes(el), next);
+      fn(child, next);
     }
   }
 

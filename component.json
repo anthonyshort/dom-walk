@@ -6,7 +6,6 @@
   "keywords": [],
   "dependencies": {
     "timoxley/to-array": "*",
-    "anthonyshort/attributes": "*",
     "timoxley/next-tick": "*"
   },
   "development": {

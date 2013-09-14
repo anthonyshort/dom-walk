@@ -8,7 +8,7 @@ describe('dom-walk', function(){
     i = 0;
   });
 
-  function increment(el, attrs, next) {
+  function increment(el, next) {
     i++;
     next();
   }
@@ -16,7 +16,7 @@ describe('dom-walk', function(){
   it('should walk an element', function(done){
     var el = document.getElementById('walk');
     walk(el, increment, function(){
-      assert(i === 1, 'walked ' + i + ' elements');
+      assert(i === 1, i);
       done();
     });
   })
@@ -24,24 +24,15 @@ describe('dom-walk', function(){
   it('should walk an element with children', function(done){
     var el = document.getElementById('walk2');
     walk(el, increment, function(){
-      assert(i === 2);
+      assert(i === 3, i);
       done();
     });
-  })
-
-  it('should walk an element and get attributes', function(done){
-    var el = document.getElementById('walk3');
-    walk(el, function(el, attrs, next){
-      assert(attrs.id === "walk3");
-      assert(attrs['data-text'] === "foo");
-      next();
-    }, done);
   })
 
   it('should walk an element with many nested children', function(done){
     var el = document.getElementById('walk4');
     walk(el, increment, function(){
-      assert(i === 4, 'walked ' + i + ' elements');
+      assert(i === 7, i);
       done();
     });
   })
