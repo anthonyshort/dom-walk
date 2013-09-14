@@ -1,5 +1,4 @@
 var array = require('to-array');
-var tick = require('next-tick');
 
 function walk(el, fn, done) {
   var nodes;
@@ -37,7 +36,7 @@ function walk(el, fn, done) {
     }
   }
 
-  tick(next);
+  next();
 }
 
 module.exports = walk;

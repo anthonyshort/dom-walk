@@ -5,8 +5,7 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-    "timoxley/to-array": "*",
-    "timoxley/next-tick": "*"
+    "timoxley/to-array": "*"
   },
   "development": {
     "component/assert": "*"
