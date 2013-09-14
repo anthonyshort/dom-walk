@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mocha</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mocha.css" />
+  </head>
+  <body>
+    <div style="display:none">
+      <div id="walk"></div>
+      <div id="walk2">
+        <div></div>
+      </div>
+      <div id="walk3" data-text="foo"></div>
+      <div id="walk4">
+        <div data-depth="1">
+          <div data-depth="2">
+            <div data-depth="3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="mocha"></div>
+    <script src="mocha.js"></script>
+    <script>mocha.setup('bdd')</script>
+    <script src="../build/build.js"></script>
+    <script src="tests.js"></script>
+    <script>
+      (window.mochaPhantomJS || mocha).run();
+    </script>
+  </body>
+</html>
