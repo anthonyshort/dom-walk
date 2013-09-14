@@ -9,7 +9,9 @@ describe('dom-walk', function(){
   });
 
   function increment(el, next) {
-    i++;
+    if(el.nodeType === 1) {
+      i++;
+    }
     next();
   }
 
@@ -24,15 +26,15 @@ describe('dom-walk', function(){
   it('should walk an element with children', function(done){
     var el = document.getElementById('walk2');
     walk(el, increment, function(){
-      assert(i === 3, i);
+      assert(i === 2);
       done();
     });
   })
 
   it('should walk an element with many nested children', function(done){
-    var el = document.getElementById('walk4');
-    walk(el, increment, function(){
-      assert(i === 7, i);
+    var parent = document.getElementById('walk4');
+    walk(parent, increment, function(el){
+      assert(i === 4);
       done();
     });
   })
