@@ -6,7 +6,9 @@ function walk(el, process, done) {
 
   function next(){
     if(nodes.length === 0) return end();
-    walk(nodes.shift(), process, next);
+    var nextNode = nodes.shift();
+    if(!el.contains(nextNode)) return next();
+    walk(nextNode, process, next);
   }
 
   process(el, next);
