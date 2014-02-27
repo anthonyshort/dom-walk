@@ -1,4 +1,5 @@
 var array = require('to-array');
+var contains = require('dom-contains');
 
 function walk(el, process, done) {
   var end = done || function(){};
@@ -7,7 +8,7 @@ function walk(el, process, done) {
   function next(){
     if(nodes.length === 0) return end();
     var nextNode = nodes.shift();
-    if(!el.contains(nextNode)) return next();
+    if(!contains(el, nextNode)) return next();
     walk(nextNode, process, next);
   }
 
