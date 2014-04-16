@@ -1,0 +1,26 @@
+{
+  "name": "anthonyshort-dom-walk",
+  "version": "0.1.0",
+  "description": "Walk down a DOM tree",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anthonyshort/dom-walk.git"
+  },
+  "keywords": [
+    "DOM",
+    "walk",
+    "iterate"
+  ],
+  "author": "Anthony Short",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anthonyshort/dom-walk/issues"
+  }
+}
